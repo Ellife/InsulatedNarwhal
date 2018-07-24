@@ -20,8 +20,8 @@
       include("php/footer.php");
       $ref = trim($_GET["link"]);
       if (!$ref) {include("php/main.php");}
-      elseif ($ref === "") {include("php/home.php");}
-      elseif ($ref === "main") {include("php/home.php");}
+      elseif ($ref === "") {include("php/main.php");}
+      elseif ($ref === "main") {include("php/main.php");}
       elseif ($ref === "council_select") {include("php/council_select.php");}
       elseif ($ref === "suburb_select") {include("php/suburb_select.php");}
       elseif ($ref === "council_dataset") {include("php/council_dataset.php");}
