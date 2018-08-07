@@ -5,19 +5,31 @@
    <head>
       <title>Insulated Narwhal: Council Data</title>
       <meta http-equiv= "Content-Type" content="text/html;charset=iso-8859-1" />
-      <link rel="stylesheet" href="style.css" type="text/css"/>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- <link rel="stylesheet" href="style.css" type="text/css"/> -->
    </head>
    <body>
       <div id="background"></div>
       <?php 
+	  
+	  if (!isset($council_name))
+		{$council_name = "";
+		$council_dataset= "";}
+	  
       include("php/header.php");
       include("php/navigation.php");
       include("php/footer.php");
+	  
+	  
       if (empty($_GET)) {include("php/main.php");}
 	  else {	
         $ref = trim($_GET["link"]);
 		if ($ref === "main") {include("php/main.php");}		
-		elseif ($ref === "suburb_select") {include("php/suburb_select.php");}
+		elseif ($ref === "council_select") {include("php/council_select.php");}
 		elseif ($ref === "council_dataset") {include("php/council_dataset.php");}
 		elseif ($ref === "council_result") {include("php/council_result.php");}
 		elseif ($ref === "result_print") {include("php/result_print.php");}

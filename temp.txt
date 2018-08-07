@@ -1,0 +1,76 @@
+40599047+s3495545@users.noreply.github.com
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Victoria Council Data Visualization</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.php?link=main">Home</a></li>
+      <li><a href="index.php?link=council_select">Council Selection</a></li>
+      <li><a href="index.php?link=data_analysis">Data Analysis</a><li>
+	  <li><a href="index.php?link=data_visual">Data Visualization</a><li>
+      <li><a href="index.php?link=contact_us">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<?php 
+	$ref="council_select"; 
+	echo $ref;
+	
+	
+	value="<?php echo $council_name; ?>"
+
+?>
+<div class="container">
+  <h2>Council Selection</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">Council Selection</div>
+    <div class="panel-body">
+		<form method="post" action="index.php">  
+		<div class="form-group">
+			<label for="sel1">Select Council From List (select one):</label>
+			<select class="form-control" id="sel1" value="<?php echo $council_name;?>">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			</select>
+			<br>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</div>
+		<form>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (!empty($_POST["council_name_name"])) {
+    $council_name = test_input($_POST["council_name"]);
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+$sql = "SELECT councilname, postcode, suburb FROM council";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<br> Council". $row["councilname"]. " - Postcode: ". $row["postcode"]. "Suburb" . $row["suburb"] . "<br>";
+    }
+} else {
+    echo "0 results";
+}
