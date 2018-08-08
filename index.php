@@ -20,24 +20,24 @@
 		{$council_name = "";
 		$council_dataset= "";}
 	  
-      include("php/header.php");
-      include("php/navigation.php");
-      include("php/footer.php");
+      include("header.php");
+      include("navigation.php");
+      include("footer.php");
 	  
 	  
-      if (empty($_GET)) {include("php/main.php");}
+      if (empty($_GET)) {include("main.php");}
 	  else {	
         $ref = trim($_GET["link"]);
-		if ($ref === "main") {include("php/main.php");}		
-		elseif ($ref === "council_select") {include("php/council_select.php");}
-		elseif ($ref === "council_dataset") {include("php/council_dataset.php");}
-		elseif ($ref === "council_result") {include("php/council_result.php");}
-		elseif ($ref === "result_print") {include("php/result_print.php");}
-		elseif ($ref === "data_types") {include("php/data_types.php");}
-		elseif ($ref === "download") {include("php/download.php");} 
-		elseif ($ref === "data_analysis") {include("php/data_analysis.php");}  
-		elseif ($ref === "data_visual") {include("php/data_visual.php");}  
-		elseif ($ref === "contact_us") {include("php/contact_us.php");}
+		if ($ref === "main") {include("main.php");}		
+		elseif ($ref === "council_select") {include("council_select.php");}
+		elseif ($ref === "council_dataset") {include("council_dataset.php");}
+		elseif ($ref === "council_result") {include("council_result.php");}
+		elseif ($ref === "result_print") {include("result_print.php");}
+		elseif ($ref === "data_types") {include("data_types.php");}
+		elseif ($ref === "download") {include("download.php");} 
+		elseif ($ref === "data_analysis") {include("data_analysis.php");}  
+		elseif ($ref === "data_visual") {include("data_visual.php");}  
+		elseif ($ref === "contact_us") {include("contact_us.php");}
 	  }	   
       ?>
    </body>
