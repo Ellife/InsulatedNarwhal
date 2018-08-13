@@ -3,17 +3,93 @@
     $council_name = $_POST["council_name"];
     }
 ?>
+<!-- Map style 
+<style type="text/css">
+#googft-mapCanvas {
+  height: 600px;
+  margin: 0;
+  padding: 0;
+  width: 1200px;
+}
+</style>
+-->
+<!-- Scripts for map, source: Google Fusion table-->
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?v=3"></script>
+<script type="text/javascript">
+  function initialize() {
+    var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
+      (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
+    if (isMobile) {
+      var viewport = document.querySelector("meta[name=viewport]");
+      viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
+    }
+    var mapDiv = document.getElementById('googft-mapCanvas');
+    mapDiv.style.width = isMobile ? '100%' : '1100px';
+    mapDiv.style.height = isMobile ? '100%' : '600px';
+    var map = new google.maps.Map(mapDiv, {
+      center: new google.maps.LatLng(-37.22043018286098, 144.5329782900917),
+      zoom: 8,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend-open'));
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend'));
+
+    layer = new google.maps.FusionTablesLayer({
+      map: map,
+      heatmap: { enabled: false },
+      query: {
+        select: "col7",
+        from: "1DeS_CRdqXfBObn8Wy57JhL3wz66jaOyRA3T9AJld",
+        where: ""
+      },
+      options: {
+        styleId: 2,
+        templateId: 2
+      }
+    });
+
+    if (isMobile) {
+      var legend = document.getElementById('googft-legend');
+      var legendOpenButton = document.getElementById('googft-legend-open');
+      var legendCloseButton = document.getElementById('googft-legend-close');
+      legend.style.display = 'none';
+      legendOpenButton.style.display = 'block';
+      legendCloseButton.style.display = 'block';
+      legendOpenButton.onclick = function() {
+        legend.style.display = 'block';
+        legendOpenButton.style.display = 'none';
+      }
+      legendCloseButton.onclick = function() {
+        legend.style.display = 'none';
+        legendOpenButton.style.display = 'block';
+      }
+    }
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<script>
+	function updateFunction() {
+		var testSelection = document.getElementsByClassName('selection');
+		for (var i = 0; i <testSelection.length; i++) {
+			document.getElementById('current').innerHTML = testSelection[i].innerHTML;
+		}
+	}
+</script>
 <div class="container">
   <h2>Council Selection</h2>
   <div class="panel panel-default">
     <div class="panel-heading">Council Selection</div>
     <div class="panel-body">
-		<form method="post" action="index.php?link=council_dataset">  
+		<form method="post" action="index.php?link=council_dataset">
+					
 		<div class="form-group">
-			<label for="council_name">Select Council From List (select one):</label>
-			<select class="form-control" id="council_name" name="council_name" value="<?php echo $council_name; ?>">
-			<option>Alpine Shire Council</option>
-			<option>Ararat Rural City Council</option>
+			<label for="user_guide">Select council from map (select one):</label>
+			<div id="googft-mapCanvas"></div>
+			<!-- <label for="council_name">Select Council From List (select one):</label>
+			<select class="form-control" id="council_name" name="council_name" value="<?php // echo $council_name; ?>">
+			<option>Alpine</option>
+			<option>Ararat</option>
 			<option>Ballarat City Council</option>
 			<option>Banyule City Council</option>
 			<option>Bass Coast Shire Council</option>
@@ -92,9 +168,12 @@
 			<option>Yarra City Council</option>
 			<option>Yarra Ranges Shire Council</option>
 			<option>Yarriambiack Shire Council</option>
+			</select> -->
+			<br>			
+			<select class="form-control" id="council_name" name="council_name" value="<?php echo $council_name; ?>">
+			<option id="current"></option>
 			</select>
-			<br>
-			
+			<button type="button" class="update" onclick="updateFunction()">Update</button>				
 			<div class="btn-group btn-group-justified">
 				<div class="btn-group">
 					<button type="button" onclick="location.href='index.php?link=main'" class="btn btn-default btn-sm">Home</button>
@@ -106,7 +185,8 @@
 		</div>
 		<form>
 
-  </div>
+	</div>
  
 
+</div>
 </div>
