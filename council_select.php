@@ -63,14 +63,14 @@
 	function updateFunction() {
 		var testSelection = document.getElementsByClassName('selection');
 		for (var i = 0; i <testSelection.length; i++) {
-			document.getElementById('current').innerHTML = testSelection[i].innerHTML;
+			document.getElementById('current').value = testSelection[i].innerHTML;
 		}
 	}		
 </script>
 <div class="container">
   <h2>Council Selection</h2>
   <div class="panel panel-default">
-    <div class="panel-heading">Council Selection</div>
+    <div class="panel-heading"></div>
     <div class="panel-body">
 		<form method="post" action="index.php?link=council_dataset">
 					
@@ -160,17 +160,14 @@
 			<option>Yarra Ranges</option>
 			<option>Yarriambiack</option>			
 			</select> -->
-			<br>			
-			<select class="form-control" id="council_name" name="council_name" value="<?php echo $council_name; ?>">
-			<option id="current"></option>
-			</select>
-			<button type="button" class="update" onclick="updateFunction()">Confirm selection</button>				
+			<br>
+			<input type="hidden" name="council_name" id="current" value="None Selected">			
 			<div class="btn-group btn-group-justified">
 				<div class="btn-group">
 					<button type="button" onclick="location.href='index.php?link=main'" class="btn btn-default btn-sm">Home</button>
 				</div>
 				<div class="btn-group">
-					<button type="submit" class="btn btn-default btn-sm">NEXT - Data Selection</button>
+					<button type="submit" class="btn btn-default btn-sm" onclick="updateFunction()">NEXT - Data Selection</button>
 				</div>
 			</div>
 		</div>
