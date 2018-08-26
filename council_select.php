@@ -67,99 +67,16 @@
 		}
 	}		
 </script>
-<div class="container">
-  <h2>Council Selection</h2>
+<div class="container">  
   <div class="panel panel-default">
-    <div class="panel-heading"></div>
+    <div class="panel-heading">Council Selection</div>
     <div class="panel-body">
 		<form method="post" action="index.php?link=council_dataset">
 					
 		<div class="form-group">
 			<label for="user_guide">Select council from map (select one):</label>
 			<div id="googft-mapCanvas"></div>
-			<!-- <label for="council_name">Select council from list (select one):</label>
-			<select class="form-control" id="list_select" name="list_select" value="<?php // echo $council_name; ?>">
-			<option>Alpine</option>
-			<option>Ararat</option>
-			<option>Ballarat</option>
-			<option>Banyule</option>
-			<option>Bass Coast</option>
-			<option>Baw Baw</option>
-			<option>Bayside</option>
-			<option>Benalla</option>
-			<option>Boroondara</option>
-			<option>Brimbank</option>
-			<option>Buloke</option>
-			<option>Campaspe</option>
-			<option>Cardinia</option>
-			<option>Casey</option>
-			<option>Central Goldfields</option>
-			<option>Colac Otway</option>
-			<option>Corangamite</option>
-			<option>Darebin</option>
-			<option>East Gippsland</option>
-			<option>Frankston</option>
-			<option>Gannawarra</option>
-			<option>Glen Eira</option>
-			<option>Glenelg</option>
-			<option>Golden Plains</option>
-			<option>Greater Bendigo</option>
-			<option>Greater Dandenong</option>
-			<option>Greater Geelong</option>
-			<option>Greater Shepparton</option>
-			<option>Hepburn</option>
-			<option>Hindmarsh</option>
-			<option>Hobsons Bay</option>
-			<option>Horsham Rural</option>
-			<option>Hume</option>
-			<option>Indigo</option>
-			<option>Kingston</option>
-			<option>Knox</option>
-			<option>Latrobel</option>
-			<option>Loddon</option>
-			<option>Macedon Ranges</option>
-			<option>Manningham</option>
-			<option>Mansfield</option>
-			<option>Maribyrnong</option>
-			<option>Maroondah</option>
-			<option>Melbourne</option>
-			<option>Melton</option>
-			<option>Mildura</option>
-			<option>Mitchell</option>
-			<option>Moira</option>
-			<option>Monash</option>
-			<option>Moonee Valley</option>
-			<option>Moorabool</option>
-			<option>Moreland</option>
-			<option>Mornington Peninsula</option>
-			<option>Mount Alexander</option>
-			<option>Moyne</option>
-			<option>Murrindindi</option>
-			<option>Nillumbik</option>
-			<option>Northern Grampians</option>
-			<option>Port Phillip</option>
-			<option>Pyrenees</option>
-			<option>Queenscliffe</option>
-			<option>South Gippsland</option>
-			<option>Southern Grampians</option>
-			<option>Stonnington</option>
-			<option>Strathbogie</option>
-			<option>Surf Coast</option>
-			<option>Swan Hill</option>
-			<option>Towong</option>
-			<option>Unincorporated Land</option>
-			<option>Wangaratta</option>
-			<option>Warrnambool</option>
-			<option>Wellington</option>
-			<option>West Wimmera</option>
-			<option>Whitehorse</option>
-			<option>Whittlesea</option>
-			<option>Wodonga</option>
-			<option>Wyndham</option>
-			<option>Yarra</option>
-			<option>Yarra Ranges</option>
-			<option>Yarriambiack</option>			
-			</select> -->
+			
 			<br>
 			<input type="hidden" name="council_name" id="current" value="None Selected">			
 			<div class="btn-group btn-group-justified">

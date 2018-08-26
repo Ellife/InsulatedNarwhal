@@ -13,23 +13,24 @@
 
 <div class="container">
 	<div class="panel panel-default">
-		<div class="panel-heading">Council Selected</div>
+		<div class="panel-heading"><h3>Council Selected</h3></div>
 			<div class="panel-body"><?php echo $council_name;?></div>
-		<div class="panel-heading">Victorian Council Dataset</div>
+		<div class="panel-heading"><h3>Victorian Council Dataset</h3></div>
 			<div class="panel-body">
 			<form method="post" action="index.php?link=council_result"> 
 				<div class="container">
 				<label class="radio">
-					<input type="radio" name="council_dataset" value="median_house" checked>Median House Prices
+					<input type="radio" name="council_dataset" value="m" checked> Median House Prices
 				</label>
 				<label class="radio">
-					<input type="radio" name="council_dataset" value="vic_schools">Victorian Schools
+					<input type="radio" name="council_dataset" value="s"> Victorian Schools
 				</label>
 				<label class="radio">
-					<input type="radio" name="council_dataset" value="vic_hospitals">Victorian Hospitals
+					<input type="radio" name="council_dataset" value="h">Victorian Hospitals
 				</label>
 				</div>
 				<input type="hidden" name="council_name" value="<?php echo $council_name;?>">
+				<input type="hidden" name="basic_query" value ="y">
 				<Br><br>
 				
 				<div class="btn-group btn-group-justified">
